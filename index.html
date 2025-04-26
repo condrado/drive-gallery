@@ -23,7 +23,7 @@
         const li = document.createElement('li');
         const link = document.createElement('a');
         /* link.href = `image.html?id=${file.id}&name=${encodeURIComponent(file.name)}`; */
-        link.href = `https://drive.google.com/file/d/${imageId}/view?usp=drive_web`;
+        link.href = `https://drive.google.com/file/d/${file.id}/view?usp=drive_web`;
         link.textContent = file.name;
         link.target = '_self'; // abrir en la misma página
         li.appendChild(link);
