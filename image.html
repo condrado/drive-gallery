@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1 id="img-name"></h1>
+  <h1 id="img-name">Imagen</h1>
   <div class="img-container">
     <img id="img" src="" alt="Imagen" />
   </div>
@@ -18,7 +18,7 @@
     const imageName = params.get('name');
 
     document.getElementById('img-name').textContent = decodeURIComponent(imageName || '');
-    document.getElementById('img').src = `https://drive.google.com/uc?export=view&id=${imageId}&export=view&authuser=1`;
+    document.getElementById('img').src = `https://drive.google.com/uc?export=view&id=${imageId}`;
   </script>
 </body>
 </html>
