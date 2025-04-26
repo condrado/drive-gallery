@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ver Imagen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 id="img-name"></h1>
+  <div class="img-container">
+    <img id="img" src="" alt="Imagen" />
+  </div>
+  <p><a href="index.html">← Volver</a></p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const imageId = params.get('id');
+    const imageName = params.get('name');
+
+    document.getElementById('img-name').textContent = decodeURIComponent(imageName || '');
+    document.getElementById('img').src = `https://drive.google.com/uc?export=view&id=${imageId}`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería de Imágenes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Galería de imágenes</h1>
+  <ul id="file-list"></ul>
+
+  <script>
+    const folderId = '1V7XbmfTrj72h8vmHZdGTCitNzFHanJj7?usp=sharing'; // 👈 Cambia aquí
+    const apiKey = 'AIzaSyC8AQqXAQo4qyCAGy3axRSSWI1pR3fAm4Y';       // 👈 Cambia aquí
+
+    const fileListEl = document.getElementById('file-list');
+
+    const fetchFiles = async () => {
+      const res = await fetch(
+        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents+and+mimeType+contains+'image'&key=${apiKey}`
+      );
+      const data = await res.json();
+      data.files.forEach(file => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = `image.html?id=${file.id}&name=${encodeURIComponent(file.name)}`;
+        link.textContent = file.name;
+        link.target = '_self'; // abrir en la misma página
+        li.appendChild(link);
+        fileListEl.appendChild(li);
+      });
+    };
+
+    fetchFiles();
+  </script>
+</body>
+</html>
